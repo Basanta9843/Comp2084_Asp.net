@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DotNetSportsQuizApp.Models.PlayerProgress>
+
+@{
+    ViewData["Title"] = "Player Progress";
+}
+
+<h1>Access User Progress</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalQuestions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorrectAnswers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportsQuizId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalQuestions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorrectAnswers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SportsQuizId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PlayerProgressId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PlayerProgressId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PlayerProgressId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

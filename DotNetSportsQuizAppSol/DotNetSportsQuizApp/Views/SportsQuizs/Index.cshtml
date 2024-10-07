@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DotNetSportsQuizApp.Models.SportsQuiz>
+
+@{
+    ViewData["Title"] = "Manage Quizzes";
+}
+
+<h1>Sports Quizzes</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizCreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SportType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizCreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SportsQuizId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SportsQuizId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SportsQuizId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DotNetSportsQuizApp.Models.QuizQuestions>
+
+@{
+    ViewData["Title"] = "Manage Questions";
+}
+
+<h1>Sport Quiz Questions</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionAsked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RightAnswer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportsQuizId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionAsked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Option1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Option2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Option3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Option4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RightAnswer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SportsQuizId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.QuizQuestionsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.QuizQuestionsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.QuizQuestionsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
